@@ -1,5 +1,11 @@
 /* This header file defines all the user-space threading functions. */
 
+struct uthread {
+	pthread_t uthread_id;
+	void*(*func)(void*);
+	void* arg;
+};
+
 void uthread_init(void);
 
 void uthread_create(void (*func) (void*), void* arg);
